@@ -76,7 +76,7 @@ Size: Large (1000)
 Random: Insertion Sort 1329833 ns, Merge Sort 93500 ns, Binary Search 750 ns
 Sorted: Insertion Sort 3541 ns, Merge Sort 62375 ns, Binary Search 750 ns
 
-D. Analysis
+ Analysis
 
 Sorting performance
 
@@ -102,13 +102,9 @@ Requirement for sorted data in Binary Search
 
 Binary Search depends on sorted input because it eliminates half of the search space based on comparisons with the middle element. Without sorting, this elimination strategy is invalid.
 
-E. Screenshots
+D. Screenshots
 
-Run 1: docs/screenshots/run1.png
-Run 2: docs/screenshots/run2.png
-Run 3: docs/screenshots/run3.png
-
-F. Reflection
+E. Reflection
 
 This assignment demonstrated the practical differences between algorithm complexities. The performance gap between quadratic and logarithmic-linear algorithms became clear through execution time measurements. Insertion Sort proved efficient for small or already sorted datasets, while Merge Sort showed strong scalability. Binary Search consistently maintained high efficiency regardless of input size.
 
