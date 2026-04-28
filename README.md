@@ -1,126 +1,115 @@
-# Assignment 3: Sorting and Searching Algorithm Analysis System
+Assignment 3: Sorting and Searching Algorithm Analysis System
 
-## A. Project Overview
+A. Project Overview
 
-This project implements and compares three algorithms in Java:
+This project implements and compares three algorithms in Java: Insertion Sort as a basic sorting algorithm, Merge Sort as an advanced sorting algorithm, and Binary Search as a searching algorithm. The objective is to measure and analyze their execution times on arrays of different sizes and input types (random and sorted), and to evaluate whether the observed results align with theoretical Big-O complexity.
 
-- **Insertion Sort** — basic sorting algorithm
-- **Merge Sort** — advanced sorting algorithm  
-- **Binary Search** — searching algorithm
+B. Algorithm Descriptions
 
-The goal is to measure how fast each algorithm runs on arrays of different sizes and input types (random vs sorted), and to check whether the real results match what Big-O theory predicts.
+Insertion Sort
 
----
+Insertion Sort iterates through the array from left to right. For each element, it compares it with previous elements, shifts larger elements to the right, and inserts the current element into its correct position. This process is similar to sorting playing cards by hand.
 
-## B. Algorithm Descriptions
+Best case: O(n)
+Average case: O(n²)
+Worst case: O(n²)
 
-### Insertion Sort (Basic Sort)
+Merge Sort
 
-Insertion Sort goes through the array from left to right. For each element, it looks at the elements before it, shifts the larger ones one step to the right, and places the current element in the correct position. It works similarly to sorting a hand of playing cards.
+Merge Sort follows a divide-and-conquer approach. It repeatedly divides the array into smaller halves until each subarray contains a single element, then merges them back together in sorted order. Its performance remains consistent regardless of input type.
 
-| Case | Time Complexity |
-|------|----------------|
-| Best (already sorted) | O(n) |
-| Average | O(n²) |
-| Worst (reverse sorted) | O(n²) |
+Best case: O(n log n)
+Average case: O(n log n)
+Worst case: O(n log n)
 
-### Merge Sort (Advanced Sort)
+Binary Search
 
-Merge Sort splits the array in half repeatedly until each piece has one element, then merges those pieces back together in sorted order. It performs consistently regardless of whether the input is random or already sorted.
+Binary Search operates on a sorted array. It repeatedly checks the middle element and eliminates half of the remaining elements based on comparison, continuing until the target is found or the search space is empty.
 
-| Case | Time Complexity |
-|------|----------------|
-| Best | O(n log n) |
-| Average | O(n log n) |
-| Worst | O(n log n) |
+Best case: O(1)
+Average case: O(log n)
+Worst case: O(log n)
 
-### Binary Search
+C. Experimental Results
 
-Binary Search looks at the middle element of a sorted array. If the target is smaller it searches the left half, if larger it searches the right half. It repeats this until it finds the target or runs out of elements to check.
+Each experiment was conducted using two input types: random arrays and sorted arrays. The search target was selected as the middle element of the sorted array (array[n/2]) to ensure its presence.
 
-| Case | Time Complexity |
-|------|----------------|
-| Best (target is the middle) | O(1) |
-| Average | O(log n) |
-| Worst | O(log n) |
+Run 1
 
----
+Size: Small (10)
+Random: Insertion Sort 2250 ns, Merge Sort 5333 ns, Binary Search 1166 ns
+Sorted: Insertion Sort 1167 ns, Merge Sort 7375 ns, Binary Search 625 ns
 
-## C. Experimental Results
+Size: Medium (100)
+Random: Insertion Sort 60250 ns, Merge Sort 67917 ns, Binary Search 417 ns
+Sorted: Insertion Sort 2833 ns, Merge Sort 68083 ns, Binary Search 417 ns
 
-Each experiment tests two input types:
-- **Random** — array filled with randomly generated numbers
-- **Sorted** — the same array after being sorted
+Size: Large (1000)
+Random: Insertion Sort 1329458 ns, Merge Sort 504208 ns, Binary Search 834 ns
+Sorted: Insertion Sort 3416 ns, Merge Sort 355458 ns, Binary Search 709 ns
 
-The search target is always the middle element of the sorted array (`array[n/2]`), which guarantees it exists in the array.
+Run 2
 
-### Run 1
+Size: Small (10)
+Random: Insertion Sort 2250 ns, Merge Sort 5583 ns, Binary Search 959 ns
+Sorted: Insertion Sort 1291 ns, Merge Sort 6833 ns, Binary Search 584 ns
 
-| Size | Input | Insertion Sort (ns) | Merge Sort (ns) | Binary Search (ns) |
-|------|-------|--------------------|-----------------|--------------------|
-| Small (10) | Random | 2,250 | 5,333 | 1,166 |
-| Small (10) | Sorted | 1,167 | 7,375 | 625 |
-| Medium (100) | Random | 60,250 | 67,917 | 417 |
-| Medium (100) | Sorted | 2,833 | 68,083 | 417 |
-| Large (1000) | Random | 1,329,458 | 504,208 | 834 |
-| Large (1000) | Sorted | 3,416 | 355,458 | 709 |
+Size: Medium (100)
+Random: Insertion Sort 40083 ns, Merge Sort 66875 ns, Binary Search 583 ns
+Sorted: Insertion Sort 2875 ns, Merge Sort 69042 ns, Binary Search 667 ns
 
-### Run 2
+Size: Large (1000)
+Random: Insertion Sort 2125084 ns, Merge Sort 114416 ns, Binary Search 1167 ns
+Sorted: Insertion Sort 3375 ns, Merge Sort 61916 ns, Binary Search 666 ns
 
-| Size | Input | Insertion Sort (ns) | Merge Sort (ns) | Binary Search (ns) |
-|------|-------|--------------------|-----------------|--------------------|
-| Small (10) | Random | 2,250 | 5,583 | 959 |
-| Small (10) | Sorted | 1,291 | 6,833 | 584 |
-| Medium (100) | Random | 40,083 | 66,875 | 583 |
-| Medium (100) | Sorted | 2,875 | 69,042 | 667 |
-| Large (1000) | Random | 2,125,084 | 114,416 | 1,167 |
-| Large (1000) | Sorted | 3,375 | 61,916 | 666 |
+Run 3
 
-### Run 3
+Size: Small (10)
+Random: Insertion Sort 2375 ns, Merge Sort 27458 ns, Binary Search 1250 ns
+Sorted: Insertion Sort 1125 ns, Merge Sort 6792 ns, Binary Search 542 ns
 
-| Size | Input | Insertion Sort (ns) | Merge Sort (ns) | Binary Search (ns) |
-|------|-------|--------------------|-----------------|--------------------|
-| Small (10) | Random | 2,375 | 27,458 | 1,250 |
-| Small (10) | Sorted | 1,125 | 6,792 | 542 |
-| Medium (100) | Random | 37,291 | 65,042 | 542 |
-| Medium (100) | Sorted | 2,708 | 100,792 | 583 |
-| Large (1000) | Random | 1,329,833 | 93,500 | 750 |
-| Large (1000) | Sorted | 3,541 | 62,375 | 750 |
+Size: Medium (100)
+Random: Insertion Sort 37291 ns, Merge Sort 65042 ns, Binary Search 542 ns
+Sorted: Insertion Sort 2708 ns, Merge Sort 100792 ns, Binary Search 583 ns
 
----
+Size: Large (1000)
+Random: Insertion Sort 1329833 ns, Merge Sort 93500 ns, Binary Search 750 ns
+Sorted: Insertion Sort 3541 ns, Merge Sort 62375 ns, Binary Search 750 ns
 
-### Analysis
+D. Analysis
 
-**1. Which sorting algorithm performed faster? Why?**
+Sorting performance
 
-It depends on the array size. On small arrays (10 elements), Insertion Sort was consistently faster — around 2,000–2,400 ns compared to Merge Sort's 5,000–27,000 ns. On large arrays (1000 elements), Merge Sort was much faster — averaging around 200,000–500,000 ns, while Insertion Sort reached up to 2,125,084 ns on random data. The reason is that Insertion Sort is O(n²) and its time grows quadratically as the array gets bigger, while Merge Sort is O(n log n) and scales much better with size.
+Insertion Sort performs better on small arrays, while Merge Sort becomes significantly faster on larger arrays. This is because Insertion Sort has quadratic time complexity, whereas Merge Sort has logarithmic scaling combined with linear merging, resulting in better performance as input size increases.
 
-**2. How does performance change with input size?**
+Effect of input size
 
-Insertion Sort on random data went from roughly 2,300 ns at size 10 to over 1,300,000–2,100,000 ns at size 1000 — a 600 to 900 times increase for a 100 times increase in size. This matches O(n²) behavior closely. Merge Sort went from around 5,000–27,000 ns at size 10 to 93,000–504,000 ns at size 1000 — a much smaller relative increase, matching O(n log n). Binary Search barely changed across all sizes, staying under 1,300 ns every time regardless of array size, which matches O(log n).
+Insertion Sort shows a dramatic increase in execution time as array size grows, consistent with O(n²). Merge Sort increases more gradually, consistent with O(n log n). Binary Search shows minimal variation, confirming O(log n) behavior.
 
-**3. How does sorted vs unsorted data affect performance?**
+Sorted versus unsorted input
 
-Insertion Sort benefits enormously from sorted input. At size 1000 it went from over 1,300,000 ns on random data down to just 3,400–3,500 ns on sorted data — roughly 400 times faster. This is because on a sorted array, each element is already in place and the inner loop never runs, giving O(n) behavior instead of O(n²). Merge Sort also improved on sorted data but by a smaller margin. Binary Search was not affected since it always runs on a sorted array.
+Insertion Sort performs significantly faster on sorted arrays due to reduced comparisons, achieving near-linear performance. Merge Sort shows minor improvement with sorted input, while Binary Search is unaffected because it always operates on sorted data.
 
-**4. Do the results match expected Big-O complexity?**
+Consistency with Big-O theory
 
-Yes. Insertion Sort's time grew roughly quadratically with size, matching O(n²). Merge Sort's time grew much more slowly, matching O(n log n). Binary Search stayed nearly constant across all sizes, matching O(log n). The practical results confirmed the theoretical predictions across all three runs.
+The experimental results align with theoretical expectations. Insertion Sort demonstrates quadratic growth, Merge Sort demonstrates logarithmic-linear growth, and Binary Search maintains logarithmic behavior.
 
-**5. Which searching algorithm is more efficient? Why?**
+Searching efficiency
 
-Binary Search is far more efficient than Linear Search. Across all three runs it finished in under 1,300 ns even on 1000 elements, because it only needs about 10 comparisons (log₂(1000) ≈ 10). Linear Search could need up to 1000 comparisons in the worst case. The advantage grows even larger on bigger arrays — at one million elements, Binary Search still needs only about 20 steps.
+Binary Search is significantly more efficient than Linear Search due to its logarithmic complexity. It requires far fewer comparisons, especially as input size increases.
 
-**6. Why does Binary Search require a sorted array?**
+Requirement for sorted data in Binary Search
 
-Binary Search works by looking at the middle element and deciding which half of the array to search next. This decision only makes sense when the array is sorted. If the array is unsorted, there is no way to know which half contains the target, and the algorithm would skip over it and return the wrong answer.
+Binary Search depends on sorted input because it eliminates half of the search space based on comparisons with the middle element. Without sorting, this elimination strategy is invalid.
 
----
+E. Screenshots
 
-## D. Screenshots
+Run 1: docs/screenshots/run1.png
+Run 2: docs/screenshots/run2.png
+Run 3: docs/screenshots/run3.png
 
-## E. Reflection
+F. Reflection
 
-This assignment made the difference between O(n²) and O(n log n) very concrete. Seeing Insertion Sort take over two million nanoseconds on just 1000 random elements while Merge Sort handled the same data in around 100,000–500,000 ns made the gap feel real in a way that reading formulas alone never did. It was also surprising to see Insertion Sort beat Merge Sort on small arrays — a reminder that Big-O describes how an algorithm scales, not how fast it is in absolute terms at small sizes.
+This assignment demonstrated the practical differences between algorithm complexities. The performance gap between quadratic and logarithmic-linear algorithms became clear through execution time measurements. Insertion Sort proved efficient for small or already sorted datasets, while Merge Sort showed strong scalability. Binary Search consistently maintained high efficiency regardless of input size.
 
-The most interesting result was how dramatically sorted input improved Insertion Sort. On sorted data it dropped to under 4,000 ns even at size 1000, faster than everything else. This showed that choosing the right algorithm depends not just on the size of the data but also on what you already know about it. The small variations between the three runs also demonstrated that real execution times are affected by CPU load and system state, which is why running multiple tests and comparing them matters more than relying on a single result.
+The results also highlighted that theoretical complexity does not always determine performance for small inputs. Additionally, variations across runs showed the influence of system conditions, reinforcing the importance of repeated testing for reliable conclusions.
